@@ -79,3 +79,37 @@ body {
   opacity: 1;
   transform: translate(0, 0);
 }
+
+/* Slow ambient rotation on the hero crosshair watermark */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 50s linear infinite;
+}
+
+/* Blueprint scan grid — slow diagonal drift behind dark hero sections */
+@keyframes scan-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 64px 64px;
+  }
+}
+.bg-scan-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: scan-drift 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .bg-scan-grid {
+    animation: none;
+  }
+}

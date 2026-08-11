@@ -16,9 +16,8 @@ export default function GalleryPage() {
             Real projects. As they happen.
           </h1>
           <p className="mt-5 max-w-xl text-white/70">
-            As a brand-new company, we won&apos;t fill this page with stock
-            photos dressed up as our work. Every image here will be a real
-            Iron Sight install, added as jobs wrap.
+            No stock photos dressed up as our work. Every image here is a
+            real Iron Sight install, added as jobs wrap.
           </p>
         </Container>
       </section>

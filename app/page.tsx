@@ -1,4 +1,6 @@
 import { CrosshairMark } from "@/components/icons/Crosshair";
+import { CursorGlow } from "@/components/CursorGlow";
+import { Reveal } from "@/components/Reveal";
 import {
   Container,
   Eyebrow,
@@ -67,22 +69,20 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-charcoal text-white">
-        <CrosshairMark className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] text-white/[0.04]" />
+        <div className="bg-scan-grid pointer-events-none absolute inset-0" />
+        <CrosshairMark className="animate-spin-slow pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] text-white/[0.05]" />
+        <CursorGlow />
         <Container className="relative py-24 sm:py-32">
-          <Eyebrow>
-            <span className="text-steel-light">{site.primaryState} · Est. {site.founded}</span>
-          </Eyebrow>
-          <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-6xl">
+          <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-6xl">
             High-Efficiency Window Replacement, Installed With Precision.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/70">
-            Iron Sight Exteriors replaces underperforming windows and doors
-            with high-end, energy-efficient systems — measured, quoted, and
-            installed by people who treat every home like it&apos;s their own.
+            Energy-efficient windows and doors, measured, quoted, and
+            installed by people who treat your home like their own.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <CallButton variant="primary" className="bg-white text-ink hover:bg-white/90" />
-            <Button href="/contact" variant="secondary" className="border-white text-white hover:bg-white hover:text-ink">
+            <CallButton variant="inverted" />
+            <Button href="/contact" variant="invertedOutline">
               Request a Free Quote
             </Button>
           </div>
@@ -111,14 +111,16 @@ export default function Home() {
           <SectionHeading
             eyebrow="What We Install"
             title="Windows and doors, engineered for real efficiency."
-            lede="We don't carry a budget line — every product we install is a high-end, energy-rated system chosen for performance in real Mountain West climates."
+            lede="No budget line. Every product is a high-end, energy-rated system built for Mountain West climates."
           />
           <div className="mt-14 grid gap-8 sm:grid-cols-3">
-            {services.map((s) => (
-              <div key={s.title} className="bracket-hover border border-line p-8">
-                <h3 className="text-lg font-bold text-ink">{s.title}</h3>
-                <p className="mt-3 text-sm text-steel">{s.desc}</p>
-              </div>
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 80}>
+                <div className="bracket-hover h-full border border-line p-8">
+                  <h3 className="text-lg font-bold text-ink">{s.title}</h3>
+                  <p className="mt-3 text-sm text-steel">{s.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -135,18 +137,19 @@ export default function Home() {
               Energy efficiency isn&apos;t a sticker. It&apos;s engineering.
             </h2>
             <p className="mt-5 text-white/70">
-              In a climate with real seasonal swings, an underperforming
-              window is a year-round utility bill problem. Every system we
-              install is chosen and documented against these three
-              performance factors.
+              An underperforming window means higher bills in every season.
+              We choose and document every install against these three
+              factors.
             </p>
           </div>
           <div className="space-y-6">
-            {efficiencyPoints.map((p) => (
-              <div key={p.title} className="border-l-2 border-steel pl-6">
-                <h3 className="font-bold">{p.title}</h3>
-                <p className="mt-1 text-sm text-white/60">{p.desc}</p>
-              </div>
+            {efficiencyPoints.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80}>
+                <div className="border-l-2 border-steel pl-6">
+                  <h3 className="font-bold">{p.title}</h3>
+                  <p className="mt-1 text-sm text-white/60">{p.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -161,12 +164,12 @@ export default function Home() {
             align="center"
           />
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {process.map((p) => (
-              <div key={p.step}>
+            {process.map((p, i) => (
+              <Reveal key={p.step} delay={i * 80}>
                 <span className="text-4xl font-black text-line">{p.step}</span>
                 <h3 className="mt-3 font-bold text-ink">{p.title}</h3>
                 <p className="mt-2 text-sm text-steel">{p.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -178,7 +181,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Recent Work"
             title="Project photos are on the way."
-            lede="We're a brand-new build, and we're not going to pass off stock photography as our installs. Real project photography goes here as jobs are completed."
+            lede="We won't pass off stock photos as our work. Real project photography goes here as jobs wrap."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             <PhotoPlaceholder label="Project photo coming soon" />
@@ -196,9 +199,8 @@ export default function Home() {
             Flexible financing, fast approvals.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-steel">
-            We work with financing partners built for home-improvement
-            projects, including options designed to fund quickly once a
-            project is approved.
+            Financing partners built for home-improvement projects — fast
+            funding once approved.
           </p>
           <Button href="/financing" variant="primary" className="mt-8">
             Explore Financing
@@ -217,7 +219,7 @@ export default function Home() {
               Free in-home consultation. No pressure, no filler pricing.
             </p>
           </div>
-          <CallButton className="bg-white text-ink hover:bg-white/90" />
+          <CallButton variant="inverted" />
         </Container>
       </section>
     </>

@@ -17,8 +17,8 @@ export default function ServiceAreasPage() {
             Now serving {site.primaryState}. Expanding across the Mountain West.
           </h1>
           <p className="mt-5 max-w-xl text-white/70">
-            We&apos;d rather launch one market right than promise five we
-            can&apos;t back up yet. Here&apos;s exactly where we operate today.
+            One market done right beats five promised too soon. Here&apos;s
+            exactly where we operate today.
           </p>
         </Container>
       </section>
@@ -47,7 +47,7 @@ export default function ServiceAreasPage() {
           <SectionHeading
             eyebrow="Coming Soon"
             title="Expanding across the Mountain West"
-            lede="We're building out licensing, insurance, and local presence state-by-state — not spreading thin on day one. Join the list and we'll reach out when we open your area."
+            lede="Licensing, insurance, and local presence, built state-by-state. Join the list and we'll reach out when we open your area."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {site.expansionStates.map((state) => (
@@ -70,7 +70,7 @@ export default function ServiceAreasPage() {
           <h2 className="text-2xl font-black tracking-tight">
             In our {site.primaryState} service area? Let&apos;s talk.
           </h2>
-          <CallButton className="bg-white text-ink hover:bg-white/90" />
+          <CallButton variant="inverted" />
         </Container>
       </section>
     </>

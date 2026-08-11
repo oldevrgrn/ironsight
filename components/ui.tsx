@@ -20,6 +20,28 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   return <p className="eyebrow text-xs">{children}</p>;
 }
 
+/**
+ * Variant is the ONLY thing that sets color. Never pass color utilities
+ * (bg-*, text-*) through `className` to override a variant — Tailwind
+ * resolves same-property conflicts by stylesheet order, not JSX order,
+ * so "later in the string" does not reliably win and text silently
+ * disappears (this broke every dark-section CTA site-wide before the fix).
+ * `className` is for layout only (width, margin, justify-self, etc).
+ * Use "inverted" / "invertedOutline" on dark (charcoal/ink) backgrounds.
+ */
+const buttonVariants = {
+  primary: "bg-ink text-white hover:bg-charcoal-2",
+  secondary: "border border-ink text-ink hover:bg-ink hover:text-white",
+  ghost: "text-ink hover:text-steel",
+  inverted: "bg-white text-ink hover:bg-mist",
+  invertedOutline: "border border-white text-white hover:bg-white hover:text-ink",
+} as const;
+
+type ButtonVariant = keyof typeof buttonVariants;
+
+const buttonBase =
+  "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-colors";
+
 export function Button({
   href,
   children,
@@ -28,18 +50,11 @@ export function Button({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: ButtonVariant;
   className?: string;
 }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-colors";
-  const styles = {
-    primary: "bg-ink text-white hover:bg-charcoal-2",
-    secondary: "border border-ink text-ink hover:bg-ink hover:text-white",
-    ghost: "text-ink hover:text-steel",
-  } as const;
   return (
-    <Link href={href} className={`${base} ${styles[variant]} ${className}`}>
+    <Link href={href} className={`${buttonBase} ${buttonVariants[variant]} ${className}`}>
       {children}
     </Link>
   );
@@ -50,19 +65,16 @@ export function CallButton({
   className = "",
   label = "Call Now",
 }: {
-  variant?: "primary" | "secondary";
+  variant?: ButtonVariant;
   className?: string;
   label?: string;
 }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-colors";
-  const styles = {
-    primary: "bg-ink text-white hover:bg-charcoal-2",
-    secondary: "border border-ink text-ink hover:bg-ink hover:text-white",
-  } as const;
   return (
-    <a href={site.phoneHref} className={`${base} ${styles[variant]} ${className}`}>
-      <PhoneIcon className="h-4 w-4" />
+    <a
+      href={site.phoneHref}
+      className={`${buttonBase} ${buttonVariants[variant]} whitespace-nowrap text-[11px] sm:text-sm px-4 sm:px-6 ${className}`}
+    >
+      <PhoneIcon className="h-4 w-4 shrink-0" />
       {label}: {site.phoneDisplay}
     </a>
   );

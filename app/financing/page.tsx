@@ -32,9 +32,8 @@ export default function FinancingPage() {
             Don&apos;t let cash flow decide your windows.
           </h1>
           <p className="mt-5 max-w-xl text-white/70">
-            We work with financing partners built specifically for
-            home-improvement projects, so you can move forward with
-            high-end windows without paying the full project cost upfront.
+            Financing built for home-improvement projects — move forward
+            with high-end windows without paying the full cost upfront.
           </p>
         </Container>
       </section>
@@ -51,10 +50,8 @@ export default function FinancingPage() {
             ))}
           </div>
           <p className="mt-8 max-w-2xl border border-line bg-mist p-6 text-sm text-steel">
-            📋 <strong>Financing partner:</strong> a specific lender
-            (e.g. Regions | EnerBank, Acorn Finance, or Service Finance
-            Company) will be named here once a dealer agreement is signed.
-            Until then, no specific rates or partner names are published.
+            📋 <strong>Financing partner:</strong> named here once a dealer
+            agreement is signed. No rates or partner names published yet.
           </p>
         </Container>
       </section>
@@ -77,7 +74,7 @@ export default function FinancingPage() {
           <h2 className="text-2xl font-black tracking-tight">
             Ready to talk financing for your project?
           </h2>
-          <CallButton className="bg-white text-ink hover:bg-white/90" />
+          <CallButton variant="inverted" />
         </Container>
       </section>
     </>

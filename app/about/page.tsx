@@ -32,11 +32,9 @@ export default function AboutPage() {
             A new company, built around one idea: precision.
           </h1>
           <p className="mt-5 max-w-xl text-white/70">
-            {site.name} was founded in {site.founded} to bring a high-end,
-            energy-efficiency-first alternative to homeowners in the
-            {" "}{site.primaryState} market. We&apos;re not the biggest name
-            yet — we&apos;re the one that shows up, measures twice, and
-            installs it right the first time.
+            Founded {site.founded} in {site.primaryState}. Not the biggest
+            name yet — the one that shows up, measures twice, and installs
+            it right the first time.
           </p>
         </Container>
       </section>
@@ -60,9 +58,8 @@ export default function AboutPage() {
           <SectionHeading eyebrow="Our Team" title="Meet the team" />
           <p className="mt-6 max-w-2xl border border-line bg-white p-6 text-sm text-steel">
             📋 Team bios, headshots, and founder story pending — send over
-            Jake&apos;s background/bio and any team info you want featured
-            here, and real photography once available (no stock headshots
-            presented as the actual team).
+            Jake&apos;s bio and real team photos when ready (no stock
+            headshots).
           </p>
         </Container>
       </section>
@@ -72,7 +69,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-black tracking-tight">
             Want to talk to us directly?
           </h2>
-          <CallButton className="bg-white text-ink hover:bg-white/90" />
+          <CallButton variant="inverted" />
         </Container>
       </section>
     </>

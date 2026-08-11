@@ -82,10 +82,9 @@ export default function ServicesPage() {
             ))}
           </div>
           <p className="mt-10 max-w-2xl border border-line bg-mist p-6 text-sm text-steel">
-            📋 <strong>Product lines:</strong> Iron Sight installs high-end
-            vinyl and fiberglass window systems. Specific manufacturer
-            partnerships are being finalized — this page will name exact
-            product lines once wholesale/dealer accounts are confirmed.
+            📋 <strong>Product lines:</strong> high-end vinyl and fiberglass
+            systems. Manufacturer partnerships are being finalized — exact
+            product lines land here once dealer accounts are confirmed.
           </p>
         </Container>
       </section>
@@ -95,7 +94,7 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-black tracking-tight">
             Not sure which system fits your home?
           </h2>
-          <CallButton className="bg-white text-ink hover:bg-white/90" label="Talk To Us" />
+          <CallButton variant="inverted" label="Talk To Us" />
         </Container>
       </section>
     </>
