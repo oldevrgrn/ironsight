@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Iron Sight Exteriors — monochrome brand system, lifted from the logo */
+  --ink: #14171a;        /* near-black, primary text / wordmark */
+  --charcoal: #23262b;   /* dark panels, header, footer */
+  --charcoal-2: #2f333a;
+  --steel: #6b7480;      /* logo subtitle gray */
+  --steel-light: #97a0aa;
+  --mist: #f4f5f6;       /* light section background */
+  --line: #e3e5e8;       /* hairline borders on white */
+  --line-dark: #3a3e45;  /* hairline borders on charcoal */
+  --white: #ffffff;
+
+  --background: var(--white);
+  --foreground: var(--ink);
 }
 
 @theme inline {
+  --color-ink: var(--ink);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-2: var(--charcoal-2);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-mist: var(--mist);
+  --color-line: var(--line);
+  --color-line-dark: var(--line-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Brand utility: the thin tracked-caps treatment from "EXTERIORS" in the logo,
+   reused as a recurring eyebrow/label motif site-wide. */
+.eyebrow {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+/* Crosshair corner-bracket hover accent, echoing the logo mark */
+.bracket-hover {
+  position: relative;
+}
+.bracket-hover::before,
+.bracket-hover::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--ink);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.bracket-hover::before {
+  top: -6px;
+  left: -6px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  transform: translate(4px, 4px);
+}
+.bracket-hover::after {
+  bottom: -6px;
+  right: -6px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: translate(-4px, -4px);
+}
+.bracket-hover:hover::before,
+.bracket-hover:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
 }
