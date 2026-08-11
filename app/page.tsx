@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-charcoal text-white">
+      <section className="grain relative overflow-hidden bg-charcoal text-white">
         <div className="bg-scan-grid pointer-events-none absolute inset-0" />
         <CrosshairMark className="animate-spin-slow pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] text-white/[0.05]" />
         <CursorGlow />
@@ -127,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* Energy efficiency education */}
-      <section className="bg-ink py-24 text-white">
+      <section className="grain bg-ink py-24 text-white">
         <Container className="grid gap-14 lg:grid-cols-2 lg:items-center">
           <div>
             <Eyebrow>

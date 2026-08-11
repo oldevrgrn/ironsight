@@ -5,7 +5,7 @@ import { nav, site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-white">
+    <footer className="grain relative bg-charcoal text-white">
       <Container className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">

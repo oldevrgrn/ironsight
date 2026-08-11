@@ -40,7 +40,7 @@ const buttonVariants = {
 type ButtonVariant = keyof typeof buttonVariants;
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-colors";
+  "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0";
 
 export function Button({
   href,
