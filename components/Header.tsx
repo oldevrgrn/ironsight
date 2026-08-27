@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CrosshairMark } from "@/components/icons/Crosshair";
 import { Container, CallButton } from "@/components/ui";
-import { nav } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 
 export function Header() {
   return (
@@ -33,7 +33,7 @@ export function Header() {
 
         {/* Mobile: compact call icon only */}
         <a
-          href="tel:+15555550100"
+          href={site.phoneHref}
           className="inline-flex h-11 w-11 items-center justify-center bg-ink text-white sm:hidden"
           aria-label="Call Iron Sight Exteriors"
         >

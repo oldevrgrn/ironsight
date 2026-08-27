@@ -8,9 +8,9 @@ export const site = {
   tagline: "Precision-Engineered Window & Door Replacement",
   founded: 2026, // real — company founded August 2026
 
-  // TODO: swap for the real tracked forwarding/business number before launch.
-  phoneDisplay: "(555) 555-0100",
-  phoneHref: "tel:+15555550100",
+  // Real business number.
+  phoneDisplay: "(435) 275-6808",
+  phoneHref: "tel:+14352756808",
 
   // TODO: confirm real inbox.
   email: "info@ironsightexteriors.com",
