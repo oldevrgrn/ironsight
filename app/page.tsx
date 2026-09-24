@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CrosshairMark } from "@/components/icons/Crosshair";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Reveal } from "@/components/Reveal";
@@ -7,7 +8,6 @@ import {
   Button,
   CallButton,
   SectionHeading,
-  PhotoPlaceholder,
 } from "@/components/ui";
 import { site } from "@/lib/site";
 
@@ -180,13 +180,42 @@ export default function Home() {
         <Container>
           <SectionHeading
             eyebrow="Recent Work"
-            title="Project photos are on the way."
-            lede="We won't pass off stock photos as our work. Real project photography goes here as jobs wrap."
+            title="A few early installs."
+            lede="No stock photos dressed up as our work — these are real Iron Sight jobs."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            <PhotoPlaceholder label="Project photo coming soon" />
-            <PhotoPlaceholder label="Project photo coming soon" />
-            <PhotoPlaceholder label="Project photo coming soon" />
+            <div className="relative aspect-[4/3] overflow-hidden border border-line bg-mist">
+              <Image
+                src="/gallery/window-install-01.jpg"
+                alt="Completed double-hung window replacement, green stucco home"
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden border border-line bg-mist">
+              <Image
+                src="/gallery/window-install-02-crew.jpg"
+                alt="Iron Sight installer completing an upper-story window install"
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden border border-line bg-mist">
+              <Image
+                src="/gallery/window-install-03.jpg"
+                alt="Completed sliding window replacements, tan stucco home"
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Button href="/gallery" variant="secondary">
+              See More Photos
+            </Button>
           </div>
         </Container>
       </section>
